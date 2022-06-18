@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
     // [HideInInspector]
 	// public UnityEvent onEnabled;
 
+	[SerializeField] Joystick joystick;
+
     bool canMove = true;
 	float moveBaseSpeed = 0.7f;
 	SpriteRenderer sprite;
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 		if (canMove)
-			Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+			Move(joystick.Horizontal, joystick.Vertical);
 	}
 
 	public void Move(float horizontal, float vertical)
