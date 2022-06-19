@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 
 	[SerializeField] Joystick joystick;
 
+	[SerializeField] Weapon sword;
+
 	bool canMove = true;
 	float moveBaseSpeed = 0.7f;
 	SpriteRenderer sprite;
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
 
 		if (isMoving)
 		{
+			sword.SetRotation(direction);
 			sprite.flipX = direction.x < 0;
 		}
 
