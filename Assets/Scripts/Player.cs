@@ -3,22 +3,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // [HideInInspector]
+	// [HideInInspector]
 	// public UnityEvent onEnabled;
 
 	[SerializeField] Joystick joystick;
 
-    bool canMove = true;
+	bool canMove = true;
 	float moveBaseSpeed = 0.7f;
 	SpriteRenderer sprite;
 	Rigidbody2D rb;
-	// Animator anim;
+	Animator anim;
 
 	void Awake()
 	{
 		sprite = GetComponent<SpriteRenderer>();
 		rb = GetComponent<Rigidbody2D>();
-		// anim = GetComponent<Animator>();
+		anim = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -31,16 +31,15 @@ public class Player : MonoBehaviour
 	{
 		var moveDirection = new Vector2(horizontal, vertical);
 		var moveSpeed = Mathf.Clamp(moveDirection.magnitude, 0f, 1f);
-		moveDirection.Normalize();
+		var direction = moveDirection.normalized * moveSpeed * moveBaseSpeed;
+		var isMoving = direction != Vector2.zero;
 
-		var direction = moveDirection * moveSpeed * moveBaseSpeed;
+		if (isMoving)
+		{
+			sprite.flipX = direction.x < 0;
+		}
 
-		bool moveRight = direction.x > 0 || direction.y != 0;
-		bool moveLeft = direction.x < 0 || direction.y != 0;
-
-		// anim.SetBool("walking", !sprite.flipX && moveRight || sprite.flipX && moveLeft);
-		// anim.SetBool("walkingBack", (sprite.flipX && moveRight || !sprite.flipX && moveLeft) && direction.x != 0);
-
+		anim.SetBool("walking", isMoving);
 		rb.velocity = direction;
 	}
 
