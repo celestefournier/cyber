@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -328,6 +329,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      android 1_7: 5518266113189141307
+      android 1_2: 6448327661086316486
+      android 1_5: 3026740848823103089
+      android 1_0: 125318592891314961
+      android 1_3: -3354095919098728122
+      android 1_1: 6254994810578821659
+      android 1_4: -7917268326308745288
+      android 1_8: 3967919672690242037
+      android 1_6: 1569430732650416263
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
