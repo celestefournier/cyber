@@ -1,20 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
-// using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-	// [HideInInspector]
-	// public UnityEvent onEnabled;
-
 	[SerializeField] Joystick joystick;
-
 	[SerializeField] Weapon sword;
 
 	bool canMove = true;
 	float moveBaseSpeed = 0.7f;
+	List<Transform> enemiesNearby = new List<Transform>();
 	SpriteRenderer sprite;
-	Rigidbody2D rb;
 	Animator anim;
+	Rigidbody2D rb;
 
 	void Awake()
 	{
@@ -26,7 +23,10 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 		if (canMove)
+		{
 			Move(joystick.Horizontal, joystick.Vertical);
+			CheckEnemyAround();
+		}
 	}
 
 	public void Move(float horizontal, float vertical)
@@ -38,7 +38,9 @@ public class Player : MonoBehaviour
 
 		if (isMoving)
 		{
-			sword.SetRotation(direction);
+			if (enemiesNearby.Count <= 0)
+				sword.SetRotation(direction);
+
 			sprite.flipX = direction.x < 0;
 		}
 
@@ -46,11 +48,43 @@ public class Player : MonoBehaviour
 		rb.velocity = direction;
 	}
 
-	// public void Enabled(bool enabled)
-	// {
-	// 	canMove = enabled;
+	void CheckEnemyAround()
+	{
+		if (enemiesNearby.Count <= 0)
+			return;
 
-	// 	if (enabled)
-	// 		onEnabled.Invoke();
-	// }
+		Transform closestEnemy = null;
+
+		foreach (var enemy in enemiesNearby)
+		{
+			if (closestEnemy == null)
+			{
+				closestEnemy = enemy;
+				continue;
+			}
+
+			if (Vector2.Distance(transform.position, enemy.position) < Vector2.Distance(transform.position, closestEnemy.position))
+			{
+				closestEnemy = enemy;
+			}
+		}
+
+		sword.Attack(closestEnemy.position - transform.position);
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Enemy" && !enemiesNearby.Contains(other.transform))
+		{
+			enemiesNearby.Add(other.transform);
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.tag == "Enemy" && enemiesNearby.Contains(other.transform))
+		{
+			enemiesNearby.Remove(other.transform);
+		}
+	}
 }

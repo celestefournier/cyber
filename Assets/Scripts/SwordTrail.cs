@@ -25,7 +25,7 @@ public class SwordTrail : MonoBehaviour
         swordSize = Vector3.Distance(_base.position, tip.position);
     }
 
-    void LateUpdate()
+    void Update()
     {
         if (!emit)
         {
@@ -56,9 +56,9 @@ public class SwordTrail : MonoBehaviour
 
         UpdateMesh();
         StartCoroutine("WaitForRemoveTrail");
-    }
 
-    void Update() => ResetPosition();
+        ResetPosition();
+    }
 
     void ResetPosition()
     {
