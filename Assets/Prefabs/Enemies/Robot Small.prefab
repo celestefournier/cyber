@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9037538825957531914}
   - component: {fileID: 9037538825957531956}
   - component: {fileID: 9037538825957531957}
+  - component: {fileID: 6436657232916238315}
   m_Layer: 0
   m_Name: Robot Small
   m_TagString: Enemy
@@ -144,3 +145,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   m_Size: {x: 0.17, y: 0.21}
   m_Direction: 0
+--- !u!114 &6436657232916238315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037538825957531913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716dde59ba01f9e45ad493acce256e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.4
