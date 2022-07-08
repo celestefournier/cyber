@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] Transform player;
     [SerializeField] WeaponCollider weaponCollider;
 
     Animator anim;
@@ -33,7 +34,7 @@ public class Weapon : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            // Remove life from enemy
+            other.GetComponent<Enemy>().SetDamage(1, player.position);
         }
     }
 }

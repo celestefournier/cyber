@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Enemy : MonoBehaviour
 
     Transform player;
     Rigidbody2D rb;
+    float knockbackForce = 0.2f;
     
     public void Init(Transform player)
     {
@@ -20,4 +22,11 @@ public class Enemy : MonoBehaviour
 
         rb.velocity = direction;
     }
+
+    public void SetDamage(float damage, Vector3 contactPoint)
+	{
+        var knockbackPos = (transform.position - contactPoint).normalized;
+
+		rb.DOMove(knockbackPos * knockbackForce + transform.position, 0.1f).SetEase(Ease.Linear);
+	}
 }
