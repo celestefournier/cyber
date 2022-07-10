@@ -158,3 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.4
+  hitMaterial: {fileID: 2100000, guid: 11ad58197f620c34d85a4572dc5be474, type: 2}

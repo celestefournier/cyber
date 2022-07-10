@@ -1305,6 +1305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 1389164920}
   sword: {fileID: 429802848}
+  swordSprite: {fileID: 902351344}
+  hitMaterial: {fileID: 2100000, guid: 11ad58197f620c34d85a4572dc5be474, type: 2}
 --- !u!95 &1533285609
 Animator:
   serializedVersion: 4

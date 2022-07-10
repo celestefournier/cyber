@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
 	[SerializeField] Joystick joystick;
 	[SerializeField] Weapon sword;
+	[SerializeField] SpriteRenderer swordSprite;
+	[SerializeField] Material hitMaterial;
 
 	bool canMove = true;
 	float moveBaseSpeed = 0.7f;
@@ -102,6 +104,7 @@ public class Player : MonoBehaviour
 	void SetDamage(float damage, Vector3 contactPoint)
 	{
 		StartCoroutine(Invicible());
+		StartCoroutine(DamageEffect());
 
 		health -= damage;
 
@@ -119,5 +122,19 @@ public class Player : MonoBehaviour
 		isInvencible = true;
 		yield return new WaitForSeconds(0.3f);
 		isInvencible = false;
+	}
+
+	IEnumerator DamageEffect()
+	{
+		Material prevPlayerMaterial = sprite.material;
+		Material prevSwordMaterial = swordSprite.material;
+
+		sprite.material = hitMaterial;
+		swordSprite.material = hitMaterial;
+
+		yield return new WaitForSeconds(0.1f);
+
+		sprite.material = prevPlayerMaterial;
+		swordSprite.material = prevSwordMaterial;
 	}
 }
