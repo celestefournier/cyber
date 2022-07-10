@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     Transform player;
     Rigidbody2D rb;
     float knockbackForce = 0.2f;
+    float health = 3;
     
     public void Init(Transform player)
     {
@@ -25,8 +26,13 @@ public class Enemy : MonoBehaviour
 
     public void SetDamage(float damage, Vector3 contactPoint)
 	{
+        health -= damage;
+
+		if (health <= 0)
+			Destroy(gameObject);
+
         var knockbackPos = (transform.position - contactPoint).normalized;
 
-		rb.DOMove(knockbackPos * knockbackForce + transform.position, 0.1f).SetEase(Ease.Linear);
+		rb.DOMove(knockbackPos * knockbackForce + transform.position, 0.2f).SetEase(Ease.Linear);
 	}
 }
