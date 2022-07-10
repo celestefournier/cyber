@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Player : MonoBehaviour
 
 	bool canMove = true;
 	float moveBaseSpeed = 0.7f;
+	float health = 5;
+	bool isInvencible;
 	List<Transform> enemiesNearby = new List<Transform>();
 	SpriteRenderer sprite;
 	Animator anim;
@@ -86,5 +90,28 @@ public class Player : MonoBehaviour
 		{
 			enemiesNearby.Remove(other.transform);
 		}
+	}
+
+	void OnCollisionStay2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Enemy" && !isInvencible)
+			SetDamage(1, other.transform.position);
+	}
+	
+	void SetDamage(float damage, Vector3 contactPoint)
+	{
+		StartCoroutine(Invicible());
+
+		health -= damage;
+
+		if (health <= 0)
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Die
+	}
+
+	IEnumerator Invicible()
+	{
+		isInvencible = true;
+		yield return new WaitForSeconds(0.3f);
+		isInvencible = false;
 	}
 }
