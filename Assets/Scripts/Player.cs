@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	[SerializeField] Weapon sword;
 	[SerializeField] SpriteRenderer swordSprite;
 	[SerializeField] Material hitMaterial;
+	[SerializeField] GameController gameController;
 
 	bool canMove = true;
 	float moveBaseSpeed = 0.7f;
@@ -109,7 +110,7 @@ public class Player : MonoBehaviour
 		health -= damage;
 
 		if (health <= 0)
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Die
+			gameController.SetGameOver();
 
 		float knockbackForce = 0.2f;
 		var knockbackPos = (transform.position - contactPoint).normalized;
