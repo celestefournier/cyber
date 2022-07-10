@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -106,6 +107,11 @@ public class Player : MonoBehaviour
 
 		if (health <= 0)
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Die
+
+		float knockbackForce = 0.2f;
+		var knockbackPos = (transform.position - contactPoint).normalized;
+
+		rb.DOMove(knockbackPos * knockbackForce + transform.position, 0.2f).SetEase(Ease.Linear);
 	}
 
 	IEnumerator Invicible()
