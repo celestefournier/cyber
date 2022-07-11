@@ -10,10 +10,15 @@ public class Player : MonoBehaviour
 	[SerializeField] SpriteRenderer swordSprite;
 	[SerializeField] Material hitMaterial;
 	[SerializeField] GameController gameController;
+	[SerializeField] HeartUIController heartUI;
+
+	[HideInInspector]
+	public float maxHealth = 5;
+	[HideInInspector]
+	public float health;
 
 	bool canMove = true;
 	float moveBaseSpeed = 0.7f;
-	float health = 5;
 	bool isInvencible;
 	List<Transform> enemiesNearby = new List<Transform>();
 	SpriteRenderer sprite;
@@ -25,6 +30,8 @@ public class Player : MonoBehaviour
 		sprite = GetComponent<SpriteRenderer>();
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+
+		health = maxHealth;
 	}
 
 	void Update()
@@ -107,6 +114,7 @@ public class Player : MonoBehaviour
 		StartCoroutine(DamageEffect());
 
 		health -= damage;
+		heartUI.SetHeart(health);
 
 		if (health <= 0)
 			gameController.SetGameOver();
