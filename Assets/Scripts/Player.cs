@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 
 		if (isMoving)
 		{
-			if (enemiesNearby.Count <= 0)
+			if (!sword.isAttacking)
 				sword.SetRotation(direction);
 
 			sprite.flipX = direction.x < 0;

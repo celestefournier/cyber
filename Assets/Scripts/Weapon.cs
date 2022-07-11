@@ -7,6 +7,9 @@ public class Weapon : MonoBehaviour
 
     Animator anim;
 
+    [HideInInspector]
+    public bool isAttacking => anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack";
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -23,7 +26,7 @@ public class Weapon : MonoBehaviour
 
     public void Attack(Vector2 direction)
     {
-        if (anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack")
+        if (isAttacking)
             return;
 
         SetRotation(direction);
