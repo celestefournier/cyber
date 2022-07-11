@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 		anim = GetComponent<Animator>();
 
 		health = maxHealth;
+		heartUI.SetHeart(health);
 	}
 
 	void Update()
