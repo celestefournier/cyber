@@ -7,21 +7,28 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed = 1;
     [SerializeField] Material hitMaterial;
 
-    Transform player;
-    Rigidbody2D rb;
-    SpriteRenderer sprite;
+    bool canMove = true;
     float knockbackForce = 0.2f;
     float health = 3;
+
+    Transform player;
+    Rigidbody2D rb;
+    Animator anim;
+    SpriteRenderer sprite;
 
     public void Init(Transform player)
     {
         this.player = player;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        if (!canMove)
+            return;
+
         var directionBase = player.position - transform.position;
         var direction = directionBase.normalized * moveSpeed;
 
@@ -35,7 +42,11 @@ public class Enemy : MonoBehaviour
         health -= damage;
 
         if (health <= 0)
-            Destroy(gameObject); // Die
+        {
+            anim.SetBool("died", true);
+            rb.velocity = Vector2.zero;
+            canMove = false;
+        }
 
         var knockbackPos = (transform.position - contactPoint).normalized;
 
@@ -49,5 +60,10 @@ public class Enemy : MonoBehaviour
         sprite.material = hitMaterial;
         yield return new WaitForSeconds(0.1f);
         sprite.material = prevMaterial;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

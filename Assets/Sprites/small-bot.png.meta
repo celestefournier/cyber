@@ -121,7 +121,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 11
+        width: 21
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,9 +140,9 @@ TextureImporter:
       name: small-bot_1
       rect:
         serializedVersion: 2
-        x: 11
+        x: 21
         y: 0
-        width: 11
+        width: 21
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,9 +161,9 @@ TextureImporter:
       name: small-bot_2
       rect:
         serializedVersion: 2
-        x: 22
+        x: 42
         y: 0
-        width: 11
+        width: 21
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,9 +182,9 @@ TextureImporter:
       name: small-bot_3
       rect:
         serializedVersion: 2
-        x: 33
+        x: 63
         y: 0
-        width: 11
+        width: 21
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -195,6 +195,132 @@ TextureImporter:
       bones: []
       spriteID: 125075a2d8ffcfd47a4d2cf5e591b9fe
       internalID: 173084933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small-bot_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1af3f4aa6ae7b41b8622f9c0c5f278
+      internalID: 1855238772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small-bot_5
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d2f146b53d76a4da10fe7709604e2c
+      internalID: -1398701710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small-bot_6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5fd15d89d7bd547aad7702a2ba458c
+      internalID: -1385514272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small-bot_7
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9bc854305813da4793cf938bd57986b
+      internalID: 205214724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small-bot_8
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 373a223472440fe4fb7e3795591de458
+      internalID: -559933994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small-bot_9
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753592da61ebfce4bb963dd176391499
+      internalID: 512753437
       vertices: []
       indices: 
       edges: []
@@ -211,9 +337,15 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       small-bot_1: -1528353226
+      small-bot_4: 1855238772
+      small-bot_7: 205214724
       small-bot_2: -137856139
+      small-bot_5: -1398701710
+      small-bot_9: 512753437
       small-bot_0: 1611869949
       small-bot_3: 173084933
+      small-bot_6: -1385514272
+      small-bot_8: -559933994
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
