@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class HeartUIController : MonoBehaviour
 {
-    [SerializeField] GameObject heartPrefab;
+    [SerializeField] GameObject heartFullPrefab;
+    [SerializeField] GameObject heartEmptyPrefab;
 
-    public void SetHeart(float hearts)
+    public void SetHeart(float hearts, float maxHeart)
     {
         foreach (Transform heart in transform)
             Destroy(heart.gameObject);
 
-        for (int i = 0; i < hearts; i++)
+        for (int i = 0; i < maxHeart; i++)
         {
-            Instantiate(heartPrefab, transform);
+            Instantiate(i < hearts ? heartFullPrefab : heartEmptyPrefab, transform);
         }
     }
 }

@@ -777,11 +777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 90
+      value: 78.00001
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90
+      value: 72.00001
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1716,11 +1716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 90
+      value: 78.00001
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90
+      value: 72.00001
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1818,11 +1818,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 90
+      value: 78.00001
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90
+      value: 72.00001
       objectReference: {fileID: 0}
     - target: {fileID: 4381326477638530354, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2502,7 +2502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3562,7 +3562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6257c6d3064cf9b498b0eb51eb65dac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 4381326477638530349, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
+  heartFullPrefab: {fileID: 4381326477638530349, guid: 0cea87636dc1b2a469c44ba622003038, type: 3}
+  heartEmptyPrefab: {fileID: 4381326477638530349, guid: 364787b50b036e84ab93bf2cace7afdb, type: 3}
 --- !u!1001 &4928903762651114266
 PrefabInstance:
   m_ObjectHideFlags: 0

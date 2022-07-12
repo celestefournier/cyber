@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 		anim = GetComponent<Animator>();
 
 		health = maxHealth;
-		heartUI.SetHeart(health);
+		heartUI.SetHeart(health, maxHealth);
 	}
 
 	void Update()
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
 		StartCoroutine(DamageEffect());
 
 		health -= damage;
-		heartUI.SetHeart(health);
+		heartUI.SetHeart(health, maxHealth);
 
 		if (health <= 0)
 			gameController.SetGameOver();
