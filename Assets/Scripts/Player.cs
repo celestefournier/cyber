@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	[SerializeField] SpriteRenderer swordSprite;
 	[SerializeField] Material hitMaterial;
 	[SerializeField] GameController gameController;
+	[SerializeField] ExperienceBar experienceUI;
 	[SerializeField] HeartUIController heartUI;
 
 	[HideInInspector]
