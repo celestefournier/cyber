@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -5,13 +6,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] WeaponCollider weaponCollider;
 
+    Action<float> onKillEnemy;
     Animator anim;
 
     [HideInInspector]
     public bool isAttacking => anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack";
 
-    void Start()
+    public void Init(Action<float> onKillEnemy)
     {
+        this.onKillEnemy = onKillEnemy;
+
         anim = GetComponent<Animator>();
         weaponCollider.Init(OnTrigger);
     }
@@ -37,7 +41,7 @@ public class Weapon : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().SetDamage(1, player.position);
+            other.GetComponent<Enemy>().SetDamage(1, player.position, onKillEnemy);
         }
     }
 }

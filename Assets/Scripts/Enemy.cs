@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed = 1;
     [SerializeField] Material hitMaterial;
 
+    float experienceGain = 1;
     bool canMove = true;
     float knockbackForce = 0.2f;
     float health = 3;
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour
         rb.velocity = direction;
     }
 
-    public void SetDamage(float damage, Vector3 contactPoint)
+    public void SetDamage(float damage, Vector3 contactPoint, Action<float> onDie)
     {
         StartCoroutine(DamageEffect());
 
@@ -46,6 +48,7 @@ public class Enemy : MonoBehaviour
             anim.SetBool("died", true);
             rb.velocity = Vector2.zero;
             canMove = false;
+            onDie(experienceGain);
         }
 
         var knockbackPos = (transform.position - contactPoint).normalized;
