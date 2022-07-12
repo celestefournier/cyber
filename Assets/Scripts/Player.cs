@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
         health = maxHealth;
         heartUI.SetHeart(health, maxHealth);
-        experienceUI.SetExperience(experience, maxExperience);
+        experienceUI.SetExperience(level, experience, maxExperience);
         sword.Init(OnKillEnemy);
     }
 
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
             experience = 0;
         }
 
-        experienceUI.SetExperience(experience, maxExperience);
+        experienceUI.SetExperience(level, experience, maxExperience);
     }
 
     void OnTriggerEnter2D(Collider2D other)
