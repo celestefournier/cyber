@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Joystick joystick;
-    [SerializeField] Weapon sword;
+    [SerializeField] Sword sword;
     [SerializeField] SpriteRenderer swordSprite;
     [SerializeField] Material hitMaterial;
     [SerializeField] GameController gameController;
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
         sword.Attack(closestEnemy.position - transform.position);
     }
 
-    void OnKillEnemy(float experienceGain)
+    public void OnKillEnemy(float experienceGain)
     {
         experience += experienceGain;
 

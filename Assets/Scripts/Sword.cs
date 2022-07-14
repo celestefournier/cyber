@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Sword : MonoBehaviour
 {
     [SerializeField] Transform player;
-    [SerializeField] WeaponCollider weaponCollider;
+    [SerializeField] SwordCollider weaponCollider;
 
     Action<float> onKillEnemy;
     Animator anim;

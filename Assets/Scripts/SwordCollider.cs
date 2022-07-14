@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class WeaponCollider : MonoBehaviour
+public class SwordCollider : MonoBehaviour
 {
     Action<Collider2D> trigger;
 
