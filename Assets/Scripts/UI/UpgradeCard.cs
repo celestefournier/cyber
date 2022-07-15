@@ -8,12 +8,15 @@ public class UpgradeCard : MonoBehaviour
     [SerializeField] Image photo;
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI description;
+    [SerializeField] TextMeshProUGUI level;
 
-    public void Init(Sprite photo, string title, string description, Action onClick)
+    public void Init(UpgradeBase upgrade, Action onClick)
     {
-        // photo.sprite = photo;
-        this.title.text = title;
-        this.description.text = description;
+        this.photo.sprite = upgrade.photo;
+        this.title.text = upgrade.title;
+        this.description.text = upgrade.description;
+        this.level.text = $"Lvl {upgrade.level}";
+
         GetComponent<Button>().onClick.AddListener(() => onClick());
     }
 }
