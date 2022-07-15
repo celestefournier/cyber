@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameController gameController;
     [SerializeField] ExperienceBar experienceUI;
     [SerializeField] HeartUIController heartUI;
+    [SerializeField] List<UpgradeBase> upgradeList;
+    [SerializeField] LevelUpUIController levelUpScreen;
 
     [HideInInspector]
     public float maxExperience = 5;
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
         heartUI.SetHeart(health, maxHealth);
         experienceUI.SetExperience(level, experience, maxExperience);
         sword.Init(OnKillEnemy);
+        upgradeList.ForEach(upgrade => upgrade.Init(transform, OnKillEnemy));
     }
 
     void Update()
@@ -101,7 +104,7 @@ public class Player : MonoBehaviour
 
         if (experience >= maxExperience)
         {
-            // Level Up
+            levelUpScreen.Show(upgradeList);
             level++;
             maxExperience += 2;
             experience = 0;

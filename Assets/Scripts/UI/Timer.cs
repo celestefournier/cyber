@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
 
         while (!gameController.gameOver)
         {
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSeconds(1);
             elapsedTime += TimeSpan.FromSeconds(1);
 
             textComponent.text = elapsedTime.ToString(@"mm\:ss");

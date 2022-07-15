@@ -690,6 +690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 369722523}
+  - component: {fileID: 369722524}
   m_Layer: 5
   m_Name: Level Up
   m_TagString: Untagged
@@ -721,6 +722,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &369722524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369722522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97e53d9001743942adb60a72541f3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeCard: {fileID: 8327575432012956908, guid: 12459b8ebab9e5546a79d20279144d94, type: 3}
+  upgradeCardHolder: {fileID: 1599807153}
 --- !u!1 &397501973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2165,7 @@ GameObject:
   - component: {fileID: 1095394975}
   - component: {fileID: 1095394976}
   m_Layer: 0
-  m_Name: Orbs
+  m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2183,6 +2198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b1321f8bb311746a4df05da9c8914e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photo: {fileID: 1611869949, guid: ff94da063e1432e4e9c1b86c2f17d402, type: 3}
+  title: Orb
+  description: "Descri\xE7\xE3o do orbe"
+  level: 0
+  levelMax: 5
   orbPrefab: {fileID: 7212188597662038901, guid: 32ed072e49d36c740afdca6feeb95c59, type: 3}
 --- !u!1 &1174221048
 GameObject:
@@ -3171,7 +3191,6 @@ GameObject:
   - component: {fileID: 1533285610}
   - component: {fileID: 1533285609}
   - component: {fileID: 1533285608}
-  - component: {fileID: 1533285615}
   m_Layer: 0
   m_Name: Android
   m_TagString: Player
@@ -3198,6 +3217,9 @@ MonoBehaviour:
   gameController: {fileID: 203183112}
   experienceUI: {fileID: 277749015}
   heartUI: {fileID: 2090146614}
+  upgradeList:
+  - {fileID: 1095394976}
+  levelUpScreen: {fileID: 369722524}
   maxExperience: 5
   experience: 0
   maxHealth: 3
@@ -3344,19 +3366,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1533285615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533285607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1bdb838e068d94e932ab7d9ea9bf1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbUpgrade: {fileID: 1095394976}
 --- !u!1 &1599807152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,7 +3377,7 @@ GameObject:
   - component: {fileID: 1599807153}
   - component: {fileID: 1599807154}
   m_Layer: 5
-  m_Name: Upgrades
+  m_Name: UpgradeCards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4387,7 +4396,7 @@ PrefabInstance:
     - target: {fileID: 5002967915927842150, guid: 12459b8ebab9e5546a79d20279144d94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1533285615}
+      objectReference: {fileID: 0}
     - target: {fileID: 5002967915927842150, guid: 12459b8ebab9e5546a79d20279144d94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

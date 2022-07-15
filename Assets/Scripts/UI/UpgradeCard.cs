@@ -15,7 +15,7 @@ public class UpgradeCard : MonoBehaviour
         this.photo.sprite = upgrade.photo;
         this.title.text = upgrade.title;
         this.description.text = upgrade.description;
-        this.level.text = $"Lvl {upgrade.level}";
+        this.level.text = $"Lvl {upgrade.level + 1}";
 
         GetComponent<Button>().onClick.AddListener(() => onClick());
     }

@@ -1,27 +1,14 @@
-using System;
 using UnityEngine;
 
-public class OrbUpgrade : MonoBehaviour
+public class OrbUpgrade : UpgradeBase
 {
     [SerializeField] Orb orbPrefab;
 
-    int level;
-    int levelMax = 5;
+    new int levelMax = 5;
     float distance = 0.35f;
     float rotationSpeed = 140f;
 
-    Transform player;
-    Action<float> onKill;
-
-    public void Init(Transform player, Action<float> onKill)
-    {
-        this.player = player;
-        this.onKill = onKill;
-
-        Upgrade();
-    }
-
-    public void Upgrade()
+    public override void LevelUp()
     {
         if (level >= levelMax)
             return;
