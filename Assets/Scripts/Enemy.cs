@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed = 1;
     [SerializeField] Material hitMaterial;
 
-    float experienceGain = 1;
     bool canMove = true;
+    float experienceGain = 1;
     float knockbackForce = 0.2f;
     float health = 3;
 
@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sprite;
+    Material spriteMaterial;
 
     public void Init(Transform player)
     {
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        spriteMaterial = sprite.material;
     }
 
     void Update()
@@ -58,11 +60,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DamageEffect()
     {
-        Material prevMaterial = sprite.material;
-
         sprite.material = hitMaterial;
         yield return new WaitForSeconds(0.1f);
-        sprite.material = prevMaterial;
+        sprite.material = spriteMaterial;
     }
 
     public void Destroy()
