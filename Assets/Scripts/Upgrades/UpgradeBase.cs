@@ -23,5 +23,6 @@ public abstract class UpgradeBase : MonoBehaviour
 
     public virtual void LevelUp()
     {
+        level++;
     }
 }
