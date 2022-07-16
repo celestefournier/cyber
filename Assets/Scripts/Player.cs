@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
 
         if (experience >= maxExperience)
         {
-            levelUpScreen.Show(upgradeList);
+            levelUpScreen.Show(level, upgradeList);
             level++;
             maxExperience += 2;
             experience = 0;

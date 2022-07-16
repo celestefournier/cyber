@@ -1,20 +1,23 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class LevelUpUIController : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI textLevel;
     [SerializeField] UpgradeCard upgradeCard;
     [SerializeField] RectTransform upgradeCardHolder;
 
     int upgradeMaxItems = 3;
 
-    public void Show(List<UpgradeBase> upgradeList)
+    public void Show(int playerLevel, List<UpgradeBase> upgradeList)
     {
         Time.timeScale = 0;
-        gameObject.SetActive(true);
 
         var upgrades = new List<UpgradeBase>(upgradeList);
+        gameObject.SetActive(true);
+        textLevel.text = $"Level {playerLevel}";
 
         foreach (Transform child in upgradeCardHolder)
             Destroy(child.gameObject);

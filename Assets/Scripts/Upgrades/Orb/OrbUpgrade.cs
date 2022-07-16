@@ -4,9 +4,13 @@ public class OrbUpgrade : UpgradeBase
 {
     [SerializeField] Orb orbPrefab;
 
-    new int levelMax = 5;
     float distance = 0.35f;
     float rotationSpeed = 140f;
+
+    void Awake()
+    {
+        levelMax = 5;
+    }
 
     public override void LevelUp()
     {
@@ -21,10 +25,10 @@ public class OrbUpgrade : UpgradeBase
         for (int i = 0; i < level; i++)
         {
             var angle = 360 / level * i + 1;
-            var position = new Vector2(Mathf.Sin(Mathf.Deg2Rad * angle), Mathf.Cos(Mathf.Deg2Rad * angle));
+            var vectorAngle = new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle), Mathf.Cos(Mathf.Deg2Rad * angle));
+            var position = vectorAngle * distance + transform.position;
 
-            Instantiate(orbPrefab, position * distance, Quaternion.identity, transform)
-                .Init(player, onKill);
+            Instantiate(orbPrefab, position, Quaternion.identity, transform).Init(player, onKill);
         }
     }
 

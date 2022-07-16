@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97e53d9001743942adb60a72541f3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textLevel: {fileID: 1368040706}
   upgradeCard: {fileID: 8327575432012956908, guid: 12459b8ebab9e5546a79d20279144d94, type: 3}
   upgradeCardHolder: {fileID: 1599807153}
 --- !u!1 &397501973

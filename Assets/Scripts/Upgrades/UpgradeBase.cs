@@ -9,12 +9,13 @@ public abstract class UpgradeBase : MonoBehaviour
     
     [HideInInspector]
     public int level;
+    [HideInInspector]
     public int levelMax;
 
     protected Transform player;
     protected Action<float> onKill;
 
-    public void Init(Transform player, Action<float> onKill)
+    public virtual void Init(Transform player, Action<float> onKill)
     {
         this.player = player;
         this.onKill = onKill;
