@@ -5,10 +5,12 @@ public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] Enemy robotPrefab;
+    [SerializeField] GameController gameController;
+    [SerializeField] Timer timer;
 
     Camera cam;
     Vector2 cameraSize;
-    float timeToSpawn = 2;
+    float spawnIntervalBase = 0.4f;
 
     void Start()
     {
@@ -24,9 +26,11 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        while (true)
+        while (!gameController.gameOver)
         {
-            yield return new WaitForSeconds(timeToSpawn);
+            var spawnInterval = (1 - timer.totalSeconds / 300) * spawnIntervalBase;
+
+            yield return new WaitForSeconds(spawnInterval);
 
             Vector3 position = Vector3.zero;
             int side = Random.Range(0, 4);

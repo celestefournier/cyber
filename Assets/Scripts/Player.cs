@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] LevelUpUIController levelUpScreen;
 
     [HideInInspector]
-    public float maxExperience = 5;
+    public float expLevelUp = 15;
     [HideInInspector]
     public float experience;
     [HideInInspector]
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
         health = maxHealth;
         heartUI.SetHeart(health, maxHealth);
-        experienceUI.SetExperience(level, experience, maxExperience);
+        experienceUI.SetExperience(level, experience, expLevelUp);
         sword.Init(OnKillEnemy);
         upgradeList.ForEach(upgrade => upgrade.Init(transform, OnKillEnemy));
     }
@@ -102,15 +102,15 @@ public class Player : MonoBehaviour
     {
         experience += experienceGain;
 
-        if (experience >= maxExperience)
+        if (experience >= expLevelUp)
         {
-            levelUpScreen.Show(level, upgradeList);
             level++;
-            maxExperience += 2;
+            levelUpScreen.Show(level, upgradeList);
+            expLevelUp += 30;
             experience = 0;
         }
 
-        experienceUI.SetExperience(level, experience, maxExperience);
+        experienceUI.SetExperience(level, experience, expLevelUp);
     }
 
     void OnTriggerEnter2D(Collider2D other)

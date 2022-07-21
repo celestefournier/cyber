@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1533285614}
   robotPrefab: {fileID: 6436657232916238315, guid: 24e73b25ff297fc469e801b76437b32a, type: 3}
+  gameController: {fileID: 203183112}
+  timer: {fileID: 2033853519}
 --- !u!4 &36376606
 Transform:
   m_ObjectHideFlags: 0
@@ -2251,7 +2253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photo: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
   title: Orbe
-  description: Gera um orbe em volta da personagem
+  description: Gera um orbe em torno da personagem
   level: 0
   levelMax: 5
   orbPrefab: {fileID: 7212188597662038901, guid: 32ed072e49d36c740afdca6feeb95c59, type: 3}
@@ -3269,9 +3271,7 @@ MonoBehaviour:
   experienceUI: {fileID: 277749015}
   heartUI: {fileID: 2090146614}
   upgradeList:
-  - {fileID: 302322219}
   - {fileID: 1095394976}
-  - {fileID: 1706645472}
   levelUpScreen: {fileID: 369722524}
   maxExperience: 5
   experience: 0

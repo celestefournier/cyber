@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     bool canMove = true;
     float experienceGain = 1;
     float knockbackForce = 0.2f;
-    float health = 3;
+    float health = 2;
 
     Transform player;
     Rigidbody2D rb;

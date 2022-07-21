@@ -7,8 +7,12 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] GameController gameController;
 
+    [HideInInspector]
+    public TimeSpan elapsedTime;
+    [HideInInspector]
+    public float totalSeconds => (float) elapsedTime.TotalSeconds;
+
     TextMeshProUGUI textComponent;
-    TimeSpan elapsedTime;
 
     void Start()
     {

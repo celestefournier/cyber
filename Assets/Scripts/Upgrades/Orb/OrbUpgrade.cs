@@ -5,7 +5,7 @@ public class OrbUpgrade : UpgradeBase
     [SerializeField] Orb orbPrefab;
 
     float distance = 0.35f;
-    float rotationSpeed = 140f;
+    float rotationSpeed = 70f;
 
     void Awake()
     {
