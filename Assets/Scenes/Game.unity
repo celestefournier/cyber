@@ -3272,8 +3272,9 @@ MonoBehaviour:
   heartUI: {fileID: 2090146614}
   upgradeList:
   - {fileID: 1095394976}
+  - {fileID: 1706645472}
   levelUpScreen: {fileID: 369722524}
-  maxExperience: 5
+  expLevelUp: 5
   experience: 0
   maxHealth: 3
   health: 0
@@ -3593,7 +3594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706645470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3617,6 +3618,7 @@ MonoBehaviour:
   description: Dispara um laser periodicamente
   level: 0
   levelMax: 0
+  laserWeapon: {fileID: -4559058754670827378, guid: 9cf4922734a7de14c96b430bf3c02a40, type: 3}
 --- !u!1 &1724232748
 GameObject:
   m_ObjectHideFlags: 0
