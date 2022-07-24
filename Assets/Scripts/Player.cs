@@ -16,9 +16,9 @@ public class Player : MonoBehaviour
     [SerializeField] LevelUpUIController levelUpScreen;
 
     [HideInInspector]
-    public float expLevelUp = 15;
+    public int expLevelUp = 15;
     [HideInInspector]
-    public float experience;
+    public int experience;
     [HideInInspector]
     public float maxHealth = 3;
     [HideInInspector]
@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
         sword.Attack(closestEnemy.position - transform.position);
     }
 
-    public void OnKillEnemy(float experienceGain)
+    public void OnKillEnemy(int experienceGain)
     {
         experience += experienceGain;
 
@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
         heartUI.SetHeart(health, maxHealth);
 
         if (health <= 0)
-            gameController.SetGameOver();
+            gameController.GameOver();
 
         float knockbackForce = 0.2f;
         var knockbackPos = (transform.position - contactPoint).normalized;

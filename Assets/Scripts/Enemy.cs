@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Material hitMaterial;
 
     bool canMove = true;
-    float experienceGain = 1;
+    int experienceGain = 1;
     float knockbackForce = 0.2f;
     float health = 2;
 
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         rb.velocity = direction;
     }
 
-    public void SetDamage(float damage, Vector3 contactPoint, Action<float> onDie)
+    public void SetDamage(float damage, Vector3 contactPoint, Action<int> onDie)
     {
         StartCoroutine(DamageEffect());
 

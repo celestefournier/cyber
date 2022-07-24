@@ -4,9 +4,9 @@ using UnityEngine;
 public class Orb : MonoBehaviour
 {
     Transform player;
-    Action<float> onKill;
+    Action<int> onKill;
 
-    public void Init(Transform player, Action<float> onKill)
+    public void Init(Transform player, Action<int> onKill)
     {
         this.player = player;
         this.onKill = onKill;

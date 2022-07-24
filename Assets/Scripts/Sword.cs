@@ -6,13 +6,13 @@ public class Sword : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] SwordCollider weaponCollider;
 
-    Action<float> onKillEnemy;
+    Action<int> onKillEnemy;
     Animator anim;
 
     [HideInInspector]
     public bool isAttacking => anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack";
 
-    public void Init(Action<float> onKillEnemy)
+    public void Init(Action<int> onKillEnemy)
     {
         this.onKillEnemy = onKillEnemy;
 
