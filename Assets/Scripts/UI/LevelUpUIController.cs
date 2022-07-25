@@ -20,9 +20,14 @@ public class LevelUpUIController : MonoBehaviour
         textLevel.text = $"Level {playerLevel}";
 
         foreach (Transform child in upgradeCardHolder)
+        {
             Destroy(child.gameObject);
+        }
 
-        upgrades.RemoveAll(upgrade => upgrade.level >= upgrade.levelMax);
+        upgrades.RemoveAll(upgrade => {
+            print(upgrade.level >= upgrade.levelMax);
+            return upgrade.level >= upgrade.levelMax;
+        });
 
         var availableUpgrades = upgrades.Count > upgradeMaxItems ? upgradeMaxItems : upgrades.Count;
 

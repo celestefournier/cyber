@@ -6,7 +6,6 @@ public class GameController : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject joystick;
-    [SerializeField] Timer timer;
 
     [HideInInspector]
     public bool gameOver;

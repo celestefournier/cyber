@@ -40,10 +40,33 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         health = maxHealth;
+    }
+
+    void Start()
+    {
+        GetSkills();
+
         heartUI.SetHeart(health, maxHealth);
         experienceUI.SetExperience(level, experience, expLevelUp);
         sword.Init(OnKillEnemy);
         upgradeList.ForEach(upgrade => upgrade.Init(transform, OnKillEnemy));
+    }
+
+    void GetSkills()
+    {
+        if (PlayerPrefs.GetInt("HP_Skill", 0) == 1)
+        {
+            maxHealth += 2;
+            health = maxHealth;
+        }
+        if (PlayerPrefs.GetInt("XP_Skill", 0) == 1)
+        {
+            LevelUp();
+        }
+        if (PlayerPrefs.GetInt("Vel_Skill") == 1)
+        {
+            moveBaseSpeed += 0.3f;
+        }
     }
 
     void Update()
@@ -104,13 +127,19 @@ public class Player : MonoBehaviour
 
         if (experience >= expLevelUp)
         {
-            level++;
-            levelUpScreen.Show(level, upgradeList);
-            expLevelUp += 30;
-            experience = 0;
+            LevelUp();
         }
 
         experienceUI.SetExperience(level, experience, expLevelUp);
+    }
+
+    void LevelUp()
+    {
+        print(upgradeList.Count);
+        level++;
+        levelUpScreen.Show(level, upgradeList);
+        expLevelUp += 30;
+        experience = 0;
     }
 
     void OnTriggerEnter2D(Collider2D other)

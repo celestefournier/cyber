@@ -60,13 +60,13 @@ public class SkillsScreenController : MonoBehaviour
         {
             case "HP":
                 skillTitle.text = "+HP";
-                skillDescription.text = "Mais 1 vida";
+                skillDescription.text = "Mais 2 vidas";
                 costInterno = 300;
                 cost.text = $"{300}G";
                 break;
             case "XP":
                 skillTitle.text = "+XP";
-                skillDescription.text = "Começa no level 1";
+                skillDescription.text = "Começa no level 2";
                 costInterno = 350;
                 cost.text = $"{350}G";
                 break;
