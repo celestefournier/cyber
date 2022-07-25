@@ -1,3 +1,5 @@
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] TextMeshProUGUI goldsEarned;
     [SerializeField] GameObject joystick;
 
     [HideInInspector]
@@ -16,7 +19,12 @@ public class GameController : MonoBehaviour
         gameOver = true;
         gameOverScreen.SetActive(true);
         joystick.SetActive(false);
-        PlayerPrefs.SetInt("Money", player.experience);
+
+        var golds = player.totalExperience * 2;
+
+        PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money", 0) + golds);
+        DOTween.To(() => 0, gold => goldsEarned.text = $"{gold}G", golds, 1)
+            .SetEase(Ease.Linear).SetUpdate(true);
     }
 
     public void Restart()

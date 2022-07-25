@@ -25,7 +25,6 @@ public class LevelUpUIController : MonoBehaviour
         }
 
         upgrades.RemoveAll(upgrade => {
-            print(upgrade.level >= upgrade.levelMax);
             return upgrade.level >= upgrade.levelMax;
         });
 

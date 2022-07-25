@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public int experience;
     [HideInInspector]
+    public int totalExperience;
+    [HideInInspector]
     public float maxHealth = 3;
     [HideInInspector]
     public float health;
@@ -124,6 +126,7 @@ public class Player : MonoBehaviour
     public void OnKillEnemy(int experienceGain)
     {
         experience += experienceGain;
+        totalExperience += experienceGain;
 
         if (experience >= expLevelUp)
         {
@@ -135,7 +138,6 @@ public class Player : MonoBehaviour
 
     void LevelUp()
     {
-        print(upgradeList.Count);
         level++;
         levelUpScreen.Show(level, upgradeList);
         expLevelUp += 30;
