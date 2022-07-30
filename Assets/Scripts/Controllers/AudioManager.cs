@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +34,13 @@ public class AudioManager : MonoBehaviour
         var audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = soundAudioClips.Find(audio => audio.sound == sound).audioClip;
         audioSource.Play();
+        StartCoroutine(DestroyOnFinish(audioSource, audioSource.clip.length));
+    }
+
+    IEnumerator DestroyOnFinish(AudioSource audioSource, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(audioSource);
     }
 }
 

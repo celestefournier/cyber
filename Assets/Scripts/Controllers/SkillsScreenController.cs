@@ -38,6 +38,8 @@ public class SkillsScreenController : MonoBehaviour
 
     public void SelectSkill(Image skill)
     {
+        AudioManager.Instance.Play(Sound.Select);
+
         selectedSkill = skill;
 
         UpdateDescription();
@@ -87,6 +89,7 @@ public class SkillsScreenController : MonoBehaviour
 
         if (cost <= money)
         {
+            AudioManager.Instance.Play(Sound.Select);
             money -= cost;
 
             PlayerPrefs.SetInt($"{selectedSkill.gameObject.name}_Skill", 1);

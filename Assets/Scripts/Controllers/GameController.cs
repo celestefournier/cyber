@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money", 0) + golds);
         DOTween.To(() => 0, gold => goldsEarned.text = $"{gold}G", golds, 1)
             .SetEase(Ease.Linear).SetUpdate(true);
+
+        AudioManager.Instance.Play(Sound.GameOver);
     }
 
     public void Restart()

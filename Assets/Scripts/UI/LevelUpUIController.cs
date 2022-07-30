@@ -42,6 +42,7 @@ public class LevelUpUIController : MonoBehaviour
 
     public void Hide(UpgradeBase upgrade)
     {
+        AudioManager.Instance.Play(Sound.SelectUpgrade);
         Time.timeScale = 1;
         gameObject.SetActive(false);
         upgrade.LevelUp();

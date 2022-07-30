@@ -29,6 +29,8 @@ public class LaserUpgrade : UpgradeBase
         {
             yield return new WaitForSeconds(fireInterval);
 
+            AudioManager.Instance.Play(Sound.Laser);
+
             for (int i = 0; i < level; i++)
             {
                 var randomRotate = Quaternion.Euler(0, 0, Random.Range(0, 360));

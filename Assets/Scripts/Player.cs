@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
 
     void LevelUp()
     {
+        AudioManager.Instance.Play(Sound.LevelUp);
         level++;
         levelUpScreen.Show(level, upgradeList);
         expLevelUp += 30;
@@ -170,6 +171,7 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(Invicible());
         StartCoroutine(DamageEffect());
+        AudioManager.Instance.Play(Sound.DamagePlayer);
 
         health -= damage;
         heartUI.SetHeart(health, maxHealth);

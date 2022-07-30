@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     public void SetDamage(float damage, Vector3 contactPoint, Action<int> onDie)
     {
         StartCoroutine(DamageEffect());
+        AudioManager.Instance.Play(Sound.DamageEnemy);
 
         health -= damage;
 
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
             anim.SetBool("died", true);
             rb.velocity = Vector2.zero;
             canMove = false;
+            AudioManager.Instance.Play(Sound.EnemyDied);
             onDie(experienceGain);
         }
 

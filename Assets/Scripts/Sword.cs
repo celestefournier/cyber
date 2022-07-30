@@ -41,6 +41,7 @@ public class Sword : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            AudioManager.Instance.Play(Sound.SwordAttack);
             other.GetComponent<Enemy>().SetDamage(1, player.position, onKillEnemy);
         }
     }
