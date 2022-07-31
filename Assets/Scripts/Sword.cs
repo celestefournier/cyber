@@ -5,6 +5,7 @@ public class Sword : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] SwordCollider weaponCollider;
+    [SerializeField] GameObject contactEffectPrefab;
 
     Action<int> onKillEnemy;
     Animator anim;
@@ -25,7 +26,7 @@ public class Sword : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, Mathf.Abs(direction.x)) * Mathf.Rad2Deg;
         var isRight = direction.x > 0;
 
-		transform.rotation = Quaternion.Euler(0, isRight ? 0 : 180, angle);
+        transform.rotation = Quaternion.Euler(0, isRight ? 0 : 180, angle);
     }
 
     public void Attack(Vector2 direction)
@@ -42,6 +43,7 @@ public class Sword : MonoBehaviour
         if (other.tag == "Enemy")
         {
             AudioManager.Instance.Play(Sound.SwordAttack);
+            Instantiate(contactEffectPrefab, other.ClosestPoint(player.position), Quaternion.identity);
             other.GetComponent<Enemy>().SetDamage(1, player.position, onKillEnemy);
         }
     }

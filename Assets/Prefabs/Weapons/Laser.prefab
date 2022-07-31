@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7f5c7ac78518b4eb8467b9b33bb934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactEffectPrefab: {fileID: 1046661305354532045, guid: 1e4013d54866f9f4fb87c8e2ee2d2be1, type: 3}
 --- !u!114 &5455752725882042432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.5882353, g: 0.3921569, b: 0.6901961, a: 1}
   m_FlipX: 0

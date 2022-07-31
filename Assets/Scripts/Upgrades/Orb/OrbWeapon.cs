@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 
-public class Orb : MonoBehaviour
+public class OrbWeapon : MonoBehaviour
 {
+    [SerializeField] GameObject contactEffectPrefab;
+
     Transform player;
     Action<int> onKill;
 
@@ -16,6 +18,7 @@ public class Orb : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            Instantiate(contactEffectPrefab, other.ClosestPoint(player.position), Quaternion.identity);
             other.GetComponent<Enemy>().SetDamage(1, player.position, onKill);
         }
     }
