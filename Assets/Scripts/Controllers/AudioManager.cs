@@ -39,7 +39,8 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator DestroyOnFinish(AudioSource audioSource, float time)
     {
-        yield return new WaitForSeconds(time);
+        var safeDelay = 0.2f;
+        yield return new WaitForSeconds(time + safeDelay);
         Destroy(audioSource);
     }
 }
