@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1;
     [SerializeField] Material hitMaterial;
+    [SerializeField] GameObject glitchEffect;
 
     bool canMove = true;
     int experienceGain = 1;
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
     {
         StartCoroutine(DamageEffect());
         AudioManager.Instance.Play(Sound.DamageEnemy);
+        Instantiate(glitchEffect, transform);
 
         health -= damage;
 
