@@ -13,6 +13,13 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public bool gameOver;
 
+    AudioSource gameplayMusic;
+
+    public void Awake()
+    {
+        gameplayMusic = GetComponent<AudioSource>();
+    }
+
     public void GameOver()
     {
         Time.timeScale = 0;
@@ -26,6 +33,7 @@ public class GameController : MonoBehaviour
         DOTween.To(() => 0, gold => goldsEarned.text = $"{gold}G", golds, 1)
             .SetEase(Ease.Linear).SetUpdate(true);
 
+        gameplayMusic.Stop();
         AudioManager.Instance.Play(Sound.GameOver);
     }
 
