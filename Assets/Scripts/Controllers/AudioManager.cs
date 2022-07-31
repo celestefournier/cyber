@@ -37,6 +37,7 @@ public class AudioManager : MonoBehaviour
 
         if (sound is Sound.SwordAttack ||
             sound is Sound.Laser ||
+            sound is Sound.DamageEnemy ||
             sound is Sound.EnemyDied)
         {
             audioSource.pitch = Random.Range(0.7f, 1.6f);
