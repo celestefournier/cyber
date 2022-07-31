@@ -31,12 +31,14 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        AudioManager.Instance.Play(Sound.Select);
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadMenu()
     {
+        AudioManager.Instance.Play(Sound.Back);
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }

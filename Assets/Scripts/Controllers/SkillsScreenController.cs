@@ -89,7 +89,7 @@ public class SkillsScreenController : MonoBehaviour
 
         if (cost <= money)
         {
-            AudioManager.Instance.Play(Sound.Select);
+            AudioManager.Instance.Play(Sound.SelectUpgrade);
             money -= cost;
 
             PlayerPrefs.SetInt($"{selectedSkill.gameObject.name}_Skill", 1);
