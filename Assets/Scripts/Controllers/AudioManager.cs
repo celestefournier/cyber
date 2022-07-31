@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -33,7 +34,16 @@ public class AudioManager : MonoBehaviour
     {
         var audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = soundAudioClips.Find(audio => audio.sound == sound).audioClip;
+
+        if (sound is Sound.SwordAttack ||
+            sound is Sound.Laser ||
+            sound is Sound.EnemyDied)
+        {
+            audioSource.pitch = Random.Range(0.7f, 1.6f);
+        }
+
         audioSource.Play();
+
         StartCoroutine(DestroyOnFinish(audioSource, audioSource.clip.length));
     }
 
